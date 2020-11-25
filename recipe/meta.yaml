@@ -13,7 +13,7 @@ source:
   sha256: 388b4b08a8cc0996cc5155cb027a097dc1a7f2cfe84b1121496608ab5366cc48
 
 build:
-  number: 0
+  number: 1
   skip: true  # [not linux]
   run_exports:
     - {{ pin_subpackage('libslirp', max_pin='x.x') }}
@@ -25,13 +25,9 @@ requirements:
     - ninja
     - pkg-config
   host:
-    # NOTE: The conda-forge-pinning is at version 2.58 (as of 2020-11-04).
-    #       Only `>2.66.1` (and a few older builds) has the the libglib split.
-    #       TODO: Remove version constraint once pinning is updated.
-    - glib >=2.0
+    - glib
     # Header+pkgconfig files for libglib are in the glib package.
-    # Explicitly depend on libglib to avoid glib run_exports from older builds.
-    - libglib >=2.0
+    - libglib
   run:
 
 test:
