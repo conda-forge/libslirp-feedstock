@@ -1,4 +1,4 @@
-{% set version = "4.3.1" %}
+{% set version = "4.4.0" %}
 
 package:
   name: libslirp
@@ -6,14 +6,11 @@ package:
 
 source:
   # url: https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v{{ version }}/libslirp-v{{ version }}.tar.gz
-  # The Git archive does not contain hard-coded version info and git is used
-  # during build to determine it. The archive below contains said version info.
-  # The URL below (albeit another domain) is referenced by the GitLab release.
-  url: https://elmarco.fedorapeople.org/libslirp-{{ version }}.tar.xz
-  sha256: 388b4b08a8cc0996cc5155cb027a097dc1a7f2cfe84b1121496608ab5366cc48
+  url: https://gitlab.freedesktop.org/slirp/libslirp/uploads/a30aeca3c6ad23f176065d0ee832957b/libslirp-{{ version }}.tar.xz
+  sha256: e903fc14c26030b51711bd7f098697c2393f237199e3681c2e22ea013c3635a7
 
 build:
-  number: 1
+  number: 0
   skip: true  # [not linux]
   run_exports:
     - {{ pin_subpackage('libslirp', max_pin='x.x') }}
@@ -21,7 +18,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - meson
+    - meson >=0.50
     - ninja
     - pkg-config
   host:
