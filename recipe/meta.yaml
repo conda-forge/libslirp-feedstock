@@ -18,6 +18,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - meson >=0.50
     - ninja
     - pkg-config
