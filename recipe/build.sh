@@ -1,8 +1,7 @@
-#! /bin/sh
+#!/usr/bin/env bash
 
-meson \
-  --prefix="${PREFIX}" \
-  --libdir=lib \
-  build
-ninja -C build/
-ninja -C build/ install
+set -o xtrace -o nounset -o pipefail -o errexit
+
+meson ${MESON_ARGS} build
+meson compile -C build -v
+meson install -C build

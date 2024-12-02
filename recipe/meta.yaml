@@ -11,13 +11,14 @@ source:
 
 build:
   number: 1
-  skip: true  # [not linux]
+  skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('libslirp', max_pin='x.x') }}
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - meson >=0.50
     - ninja
     - pkg-config
@@ -45,4 +46,6 @@ about:
 
 extra:
   recipe-maintainers:
+    - danielnachun
     - mbargull
+    - MementoRC
