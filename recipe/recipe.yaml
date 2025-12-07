@@ -27,7 +27,6 @@ requirements:
     - glib
     # Header+pkgconfig files for libglib are in the glib package.
     - libglib
-  run:
   run_exports:
     - ${{ pin_subpackage('libslirp', upper_bound='x.x') }}
 
