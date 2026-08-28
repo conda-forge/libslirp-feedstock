@@ -12,7 +12,7 @@ source:
   sha256: ee698ca4ce05217ca7d520c7f0b1b1228fd7d32922dd32d1051c347152588417
 
 build:
-  number: 0
+  number: 1
   skip: win
 
 requirements:
@@ -30,10 +30,12 @@ requirements:
     - ${{ pin_subpackage('libslirp', upper_bound='x.x') }}
 
 tests:
-  - script:
-      - test -f ${PREFIX}/include/slirp/libslirp.h
-      - test -f ${PREFIX}/lib/libslirp${SHLIB_EXT}
-      - test -f ${PREFIX}/lib/pkgconfig/slirp.pc
+  - package_contents:
+      strict: true
+      files:
+        - include/slirp/libslirp.h
+        - lib/libslirp${SHLIB_EXT}
+        - lib/pkgconfig/slirp.pc
 
 about:
   license: BSD-3-Clause
