@@ -32,9 +32,12 @@ requirements:
 tests:
   - package_contents:
       strict: true
+      lib:
+        - libslirp
+      include:
+        - slirp/libslirp.h
+        - slirp/libslirp-version.h
       files:
-        - include/slirp/libslirp.h
-        - lib/libslirp${SHLIB_EXT}
         - lib/pkgconfig/slirp.pc
 
 about:
