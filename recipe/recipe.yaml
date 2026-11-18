@@ -21,7 +21,7 @@ requirements:
     - ${{ stdlib('c') }}
     - meson >=0.60
     - ninja
-    - pkg-config
+    - pkgconf
   host:
     - glib
     # Header+pkgconfig files for libglib are in the glib package.
